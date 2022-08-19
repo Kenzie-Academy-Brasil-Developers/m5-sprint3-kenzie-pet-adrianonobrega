@@ -17,7 +17,7 @@ class AnimalSerializer(serializers.Serializer):
     age = serializers.IntegerField()
     weight = serializers.FloatField()
     sex = serializers.ChoiceField( choices=Sex.choices,default=Sex.default)
-
+    age_in_human_years = serializers.SerializerMethodField(read_only=True)
     group = GroupSerializer()
     traits = TraitSerializer(many=True)
 
